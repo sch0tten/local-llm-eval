@@ -1,0 +1,65 @@
+concurrency,run,task,label,task_type,completion_tokens,wall_seconds,tok_per_sec,finish_reason,run_wall_seconds,run_aggregate_tokens,run_effective_tok_per_sec
+1,1,algo_a,LRU Cache,algorithm,2465,14.484,170.2,stop,54.377,9205,169.3
+1,1,test_a,Pytest: Cron Parser,testing,2961,17.416,170.0,stop,54.377,9205,169.3
+1,1,refactor_a,Refactor: Order Endpoint,refactoring,1372,8.285,165.6,stop,54.377,9205,169.3
+1,1,design_a,Design: Rate Limiter,system_design,2407,14.191,169.6,stop,54.377,9205,169.3
+1,2,algo_a,LRU Cache,algorithm,2470,14.628,168.9,stop,55.713,9409,168.9
+1,2,test_a,Pytest: Cron Parser,testing,3127,18.339,170.5,stop,55.713,9409,168.9
+1,2,refactor_a,Refactor: Order Endpoint,refactoring,1317,7.930,166.1,stop,55.713,9409,168.9
+1,2,design_a,Design: Rate Limiter,system_design,2495,14.815,168.4,stop,55.713,9409,168.9
+2,1,algo_b,Priority Task Queue,algorithm,1428,9.623,148.4,stop,33.880,7605,224.5
+2,1,test_b,Pytest: JWT Validator,testing,2628,16.820,156.2,stop,33.880,7605,224.5
+2,1,refactor_b,Refactor: Registration View,refactoring,859,5.779,148.6,stop,33.880,7605,224.5
+2,1,design_b,Design: Circuit Breaker,system_design,2690,17.059,157.7,stop,33.880,7605,224.5
+2,2,algo_b,Priority Task Queue,algorithm,1457,9.835,148.1,stop,45.863,9873,215.3
+2,2,test_b,Pytest: JWT Validator,testing,4106,25.493,161.1,stop,45.863,9873,215.3
+2,2,refactor_b,Refactor: Registration View,refactoring,1058,7.127,148.4,stop,45.863,9873,215.3
+2,2,design_b,Design: Circuit Breaker,system_design,3252,20.369,159.7,stop,45.863,9873,215.3
+3,1,algo_c,Skip List,algorithm,2523,18.560,135.9,stop,37.537,9438,251.4
+3,1,test_c,Pytest: URL Router,testing,2771,20.109,137.8,stop,37.537,9438,251.4
+3,1,refactor_c,Refactor: Payment Endpoint,refactoring,1168,9.279,125.9,stop,37.537,9438,251.4
+3,1,design_c,Design: Job Queue,system_design,2976,17.427,170.8,stop,37.537,9438,251.4
+3,2,algo_c,Skip List,algorithm,2590,19.009,136.3,stop,39.096,9517,243.4
+3,2,test_c,Pytest: URL Router,testing,3059,22.143,138.1,stop,39.096,9517,243.4
+3,2,refactor_c,Refactor: Payment Endpoint,refactoring,1044,8.276,126.1,stop,39.096,9517,243.4
+3,2,design_c,Design: Job Queue,system_design,2824,16.952,166.6,stop,39.096,9517,243.4
+4,1,algo_d,Concurrent Hash Map,algorithm,3081,24.483,125.8,stop,26.053,10441,400.8
+4,1,test_d,Pytest: Config Parser,testing,2389,19.572,122.1,stop,26.053,10441,400.8
+4,1,refactor_d,Refactor: Inventory Transfer,refactoring,1628,13.281,122.6,stop,26.053,10441,400.8
+4,1,design_d,Design: Service Registry,system_design,3343,26.052,128.3,stop,26.053,10441,400.8
+4,2,algo_d,Concurrent Hash Map,algorithm,2888,22.719,127.1,stop,22.719,9242,406.8
+4,2,test_d,Pytest: Config Parser,testing,2409,19.454,123.8,stop,22.719,9242,406.8
+4,2,refactor_d,Refactor: Inventory Transfer,refactoring,1153,9.166,125.8,stop,22.719,9242,406.8
+4,2,design_d,Design: Service Registry,system_design,2792,22.150,126.0,stop,22.719,9242,406.8
+5,1,algo_e,B-Tree,algorithm,4798,34.192,140.3,stop,34.192,11052,323.2
+5,1,test_e,Pytest: Markdown Parser,testing,1920,15.698,122.3,stop,34.192,11052,323.2
+5,1,refactor_e,Refactor: File Upload,refactoring,1373,11.225,122.3,stop,34.192,11052,323.2
+5,1,design_e,Design: Event Sourcing,system_design,2961,23.008,128.7,stop,34.192,11052,323.2
+5,2,algo_e,B-Tree,algorithm,4551,31.217,145.8,stop,31.217,9662,309.5
+5,2,test_e,Pytest: Markdown Parser,testing,1191,9.621,123.8,stop,31.217,9662,309.5
+5,2,refactor_e,Refactor: File Upload,refactoring,1114,9.008,123.7,stop,31.217,9662,309.5
+5,2,design_e,Design: Event Sourcing,system_design,2806,20.740,135.3,stop,31.217,9662,309.5
+6,1,algo_f,Trie Autocomplete,algorithm,3054,25.026,122.0,stop,33.608,12074,359.3
+6,1,test_f,Pytest: SQL Builder,testing,2675,22.346,119.7,stop,33.608,12074,359.3
+6,1,refactor_f,Refactor: Notification Endpoint,refactoring,1886,15.782,119.5,stop,33.608,12074,359.3
+6,1,design_f,Design: Plugin System,system_design,4459,33.607,132.7,stop,33.608,12074,359.3
+6,2,algo_f,Trie Autocomplete,algorithm,2908,23.844,122.0,stop,35.981,13867,385.4
+6,2,test_f,Pytest: SQL Builder,testing,4653,35.980,129.3,stop,35.981,13867,385.4
+6,2,refactor_f,Refactor: Notification Endpoint,refactoring,1963,16.001,122.7,stop,35.981,13867,385.4
+6,2,design_f,Design: Plugin System,system_design,4343,34.122,127.3,stop,35.981,13867,385.4
+7,1,algo_g,Disjoint Set Union,algorithm,2859,23.355,122.4,stop,29.282,11250,384.2
+7,1,test_g,Pytest: CSV Processor,testing,3439,27.505,125.0,stop,29.282,11250,384.2
+7,1,refactor_g,Refactor: Search Endpoint,refactoring,1213,9.849,123.2,stop,29.282,11250,384.2
+7,1,design_g,Design: State Machine,system_design,3739,29.281,127.7,stop,29.282,11250,384.2
+7,2,algo_g,Disjoint Set Union,algorithm,2388,19.467,122.7,stop,30.300,10708,353.4
+7,2,test_g,Pytest: CSV Processor,testing,2984,23.703,125.9,stop,30.300,10708,353.4
+7,2,refactor_g,Refactor: Search Endpoint,refactoring,1285,10.416,123.4,stop,30.300,10708,353.4
+7,2,design_g,Design: State Machine,system_design,4051,30.299,133.7,stop,30.300,10708,353.4
+8,1,algo_h,Bloom Filter,algorithm,4194,35.029,119.7,stop,36.971,14029,379.5
+8,1,test_h,Pytest: Cache Decorator,testing,4517,36.971,122.2,stop,36.971,14029,379.5
+8,1,refactor_h,Refactor: Booking Endpoint,refactoring,1142,9.333,122.4,stop,36.971,14029,379.5
+8,1,design_h,Design: Task Pipeline,system_design,4176,34.910,119.6,stop,36.971,14029,379.5
+8,2,algo_h,Bloom Filter,algorithm,3740,28.941,129.2,stop,28.941,11489,397.0
+8,2,test_h,Pytest: Cache Decorator,testing,2691,21.945,122.6,stop,28.941,11489,397.0
+8,2,refactor_h,Refactor: Booking Endpoint,refactoring,1777,14.373,123.6,stop,28.941,11489,397.0
+8,2,design_h,Design: Task Pipeline,system_design,3281,26.215,125.2,stop,28.941,11489,397.0

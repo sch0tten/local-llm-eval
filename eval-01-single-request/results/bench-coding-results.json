@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "date": "2026-03-07",
+    "hardware": "2x NVIDIA RTX 3090 24GB, NV3 NVLink, AMD Threadripper, 64GB DDR4",
+    "software": "vLLM 0.17.0rc1.dev119, Ubuntu 24.04, CUDA 12.8, driver 570.133.20",
+    "max_tokens": 4096,
+    "temperature": 0.7,
+    "system_prompt": "You are a helpful assistant. Answer directly without internal reasoning or thinking steps.",
+    "protocol": "warmup run + measurement run per config, systemd-run process management"
+  },
+  "prompts": [
+    {"id": "impl", "type": "Algorithm implementation", "summary": "LRU cache with doubly linked list, O(1) get/put"},
+    {"id": "debug", "type": "Bug finding & fixing", "summary": "Find and fix bug in merge-sorted-lists using heapq"},
+    {"id": "test", "type": "Test generation", "summary": "Comprehensive pytest suite for cron parser, 12+ cases"},
+    {"id": "refactor", "type": "Architecture refactoring", "summary": "Flask route to service layer, repository pattern"},
+    {"id": "design", "type": "System design", "summary": "Rate limiter: token bucket, per-key, thread-safe, decorator"}
+  ],
+  "models": {
+    "coder4": {
+      "name": "Qwen3-Coder-30B-A3B-Instruct",
+      "quantization": "AWQ 4-bit",
+      "architecture": "MoE",
+      "total_params": "30B",
+      "active_params": "3.3B",
+      "huggingface": "cyankiwi/Qwen3-Coder-30B-A3B-Instruct-AWQ-4bit"
+    },
+    "dense": {
+      "name": "Qwen2.5-Coder-32B-Instruct",
+      "quantization": "AWQ 4-bit",
+      "architecture": "Dense",
+      "total_params": "32B",
+      "active_params": "32B",
+      "huggingface": "Qwen/Qwen2.5-Coder-32B-Instruct-AWQ"
+    }
+  },
+  "results": {
+    "coder4|TP=2 NVLink": {
+      "avg_tps": 169.7,
+      "per_prompt": {"impl": 170.0, "debug": 167.3, "test": 169.6, "refactor": 168.5, "design": 170.7},
+      "total_tokens": 5552,
+      "total_time_s": 32.7,
+      "gpu_mem_mb": [22985, 22985],
+      "notes": "All responses completed naturally (finish_reason: stop)"
+    },
+    "coder4|TP=1 Single GPU": {
+      "avg_tps": 168.4,
+      "per_prompt": {"impl": 169.2, "debug": 168.8, "test": 168.0, "refactor": 168.1, "design": 168.5},
+      "total_tokens": 5861,
+      "total_time_s": 34.8,
+      "gpu_mem_mb": [22653, 4],
+      "context_limit": 32768,
+      "notes": "All responses completed naturally"
+    },
+    "coder4|TP=2 PCIe": {
+      "avg_tps": 163.5,
+      "per_prompt": {"impl": 165.9, "debug": 162.9, "test": 163.2, "refactor": 160.7, "design": 164.5},
+      "total_tokens": 7869,
+      "total_time_s": 48.1,
+      "gpu_mem_mb": [22901, 22901],
+      "nccl_config": "NCCL_P2P_DISABLE=1",
+      "notes": "test prompt truncated at 4096 tokens (finish_reason: length)"
+    },
+    "dense|TP=2 NVLink": {
+      "avg_tps": 65.4,
+      "per_prompt": {"impl": 65.6, "debug": 65.1, "test": 65.5, "refactor": 64.9, "design": 65.6},
+      "total_tokens": 3047,
+      "total_time_s": 46.6,
+      "gpu_mem_mb": [22769, 22769],
+      "notes": "All responses completed naturally"
+    },
+    "dense|TP=1 Single GPU": {
+      "avg_tps": 41.0,
+      "per_prompt": {"impl": 41.0, "debug": 40.9, "test": 40.9, "refactor": 41.0, "design": 41.0},
+      "total_tokens": 3119,
+      "total_time_s": 76.1,
+      "gpu_mem_mb": [22285, 4],
+      "context_limit": 8192,
+      "notes": "All responses completed naturally"
+    },
+    "dense|TP=2 PCIe": {
+      "avg_tps": 63.7,
+      "per_prompt": {"impl": 63.9, "debug": 63.5, "test": 63.7, "refactor": 63.4, "design": 63.8},
+      "total_tokens": 3061,
+      "total_time_s": 48.0,
+      "gpu_mem_mb": [22765, 22765],
+      "nccl_config": "NCCL_P2P_DISABLE=1",
+      "notes": "All responses completed naturally"
+    }
+  },
+  "summary": {
+    "head_to_head": {
+      "TP=2 NVLink": {"moe_tps": 169.7, "dense_tps": 65.4, "speedup": "2.6x"},
+      "TP=1 Single GPU": {"moe_tps": 168.4, "dense_tps": 41.0, "speedup": "4.1x"},
+      "TP=2 PCIe": {"moe_tps": 163.5, "dense_tps": 63.7, "speedup": "2.6x"}
+    },
+    "nvlink_impact": {"moe": "+3.8%", "dense": "+2.7%"},
+    "second_gpu_impact": {"moe": "+0.8%", "dense": "+59.5%"}
+  }
+}
